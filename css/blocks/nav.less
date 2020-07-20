@@ -1,0 +1,59 @@
+// main: ../style.less
+
+.nav {
+    display: flex; // убрали пробел
+    align-items: center; // размещение элементов по центру в блоке
+    height: 100%;
+}
+.nav__link {
+   // padding: 0.66rem 2rem; //отступы пункта меню (сверху/снизу и справа/слев)
+    margin-left: 2rem; // отступ между элементами навигации слева
+    position: relative; // полоска под активным элементом
+    
+    font-size: 0.93rem;
+    color: @black;
+    text-transform: uppercase; // большие буквы
+    font-weight: 700; // полужирный шрифт
+    text-decoration: none; // убираем подчёркивание
+    
+   // border: 2px solid transparent; // прозрачная обводка
+    border-radius: 20px;
+    
+    &:after { // полоска
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background-color: @black;
+        
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        z-index: 1;
+        
+        transition: width .2s linear; // эффект расширения подчёркивания
+    }
+    
+    &:hover:not(.nav__link--btn)
+         {
+        
+        &:after {
+            width: 100%;
+        }
+    }
+    
+    /* Модификаторы*/
+    &--btn {
+        padding: 0.66rem 2rem;
+        border: 2px solid @black;
+        border-radius: 20px;
+        
+        transition: background-color .2s linear, color .2s linear;
+            
+            
+        &:hover {
+            background-color: @black;
+            color: @white;
+        }
+    }
+}

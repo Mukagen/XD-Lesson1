@@ -1,0 +1,47 @@
+// main: ../style.less
+
+.modal {
+    display: flex;
+    width: 100%; // на всю ширину экрана
+    height: 100%; // на всю высоту экрана
+    padding: 1rem;
+    overflow: auto;
+    
+    background-color: rgba(6,15,49,0.9);
+    
+    position: fixed; // фиксированная позиция
+    top: 0;
+    left: 0;
+    z-index: 1000; // поверх всего содержимого(1000 слоёв)
+}
+
+.modal__dialog {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto; //выравнивание окна по центру
+    position: relative;
+    
+    background-color: #fff;
+}
+
+.modal__close {
+    width: 32px;
+    height: 32px;
+    padding: 0; // внутренние отступы
+    
+    background: none; // фон за иконкой
+    border: 0; // толщина обводки
+    cursor: pointer;
+    
+    
+    position: absolute;
+    top:1rem;
+    right: 1rem;
+    z-index: 1;
+    
+    transition: transform .2s linear;
+    
+    &:hover {
+        transform: rotate(90deg);
+    }
+}
